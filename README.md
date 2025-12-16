@@ -1,8 +1,12 @@
-# Ejemplo Proyectos NLP
+# Ejemplo Proyectos PLN
 
-Este repositorio presenta un ejemplo educativo de buenas prácticas para la estructuración de experimentos en proyectos de procesamiento del lenguaje natural.
+Este repositorio muestra un ejemplo educativo para el desarrollo de proyectos de procesamiento del lenguaje natural.
+
+
 
 ## Estructura del repositorio
+
+La siguiente estructura organiza el proyecto de forma clara y reproducible, siguiendo buenas prácticas en proyectos de procesamiento de lenguaje natural.
 
 ```bash
 .
@@ -29,3 +33,39 @@ Este repositorio presenta un ejemplo educativo de buenas prácticas para la estr
 └── uv.lock         # fijado de versiones para reproducibilidad
 ```
 
+
+
+## Preparación del proyecto
+
+Pasos básicos para configurar y ejecutar el proyecto localmente.
+
+
+### Gestión dependencias
+
+El proyecto utiliza `uv` para la gestión de dependencias y del entorno virtual. Algunos comandos básicos son:
+
+```bash
+uv sync              # sincronizar dependencias y crear entorno virtual
+uv add <paquete>     # anadir una dependencia
+uv remove <paquete>  # eliminar dependencias
+uv run jupyter lab   # ejecutar notebooks
+```
+
+Más información en:
+- [Documentación oficial de uv](https://docs.astral.sh/uv/)
+- [Instalación de uv](https://docs.astral.sh/uv/getting-started/installation/)
+- [Guía de comandos de uv](https://docs.astral.sh/uv/reference/cli/)
+- [Gestión de proyectos con uv](https://docs.astral.sh/uv/guides/projects/) 
+
+
+### Variables de entorno
+
+Conviene guardar las variables que no queremos versionar en Git en un fichero `.env`. Es buena práctica subir un archivo de ejemplo con las variables a rellenar (como `.env.sample`) y rellenarlo localmente en un `.env`.
+```bash
+cp .env.sample .env # rellenar variables localmente
+```
+
+
+
+## Ejecución
+TODO
