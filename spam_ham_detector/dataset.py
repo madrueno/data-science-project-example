@@ -54,25 +54,3 @@ class CommentsDataset:
             random_state=42,
             stratify=y_train_full
         )
-
-
-def main() -> None:
-    """Load datasets and display class distributions."""
-    dataset = CommentsDataset()
-
-    print(f"Train set: {len(dataset.X_train)} rows")
-    print(f"Dev set: {len(dataset.X_dev)} rows")
-    print(f"Test set: {len(dataset.X_test)} rows")
-
-    print("\nTrain class distribution:")
-    print(dataset.y_train.value_counts())
-
-    print("\nDev class distribution:")
-    print(dataset.y_dev.value_counts())
-
-    print("\nTest class distribution:")
-    print(dataset.y_test.value_counts())
-
-
-if __name__ == '__main__':
-    main()

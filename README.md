@@ -10,26 +10,27 @@ La siguiente estructura organiza el proyecto de forma clara y reproducible, sigu
 
 ```bash
 .
-├── data/           # datos organizados por etapas de transformacion
-│   ├── raw/        # datos originales en crudo sin modificar
-│   ├── interim/    # datos con transformaciones intermedias
-│   └── processed/  # datos listos para experimentacion
-├── models/         # modelos entrenados y artefactos
-├── notebooks/      # notebooks de exploracion
-├── reports/        # documentacion elaborada
-├── runs/           # ejecuciones del proyecto
-├── src/            # codigo principal del proyecto
-│   ├── config/     # configuracion general
-│   ├── datasets/   # carga de datos
-│   ├── evaluation/ # evaluacion de modelos
-│   ├── pipelines/  # pipelines de experimentacion
-│   └── processing/ # transformaciones de datos
-├── .env.sample     # placeholder de variables de entorno
-├── .gitignore      # archivos y carpetas sin trackear
-├── README.md       # guia del repositorio
-├── LICENSE         # licencia del repositorio
-├── pyproject.toml  # dependencias y configuracion del proyecto
-└── uv.lock         # fijado de versiones para reproducibilidad
+├── data/                # datos organizados por etapas de transformacion
+│   ├── raw/             # datos originales en crudo sin modificar
+│   ├── interim/         # datos con transformaciones intermedias
+│   └── processed/       # datos listos para experimentacion
+├── models/              # modelos entrenados y artefactos
+├── notebooks/           # notebooks de exploracion
+├── reports/             # documentacion elaborada
+├── runs/                # ejecuciones del proyecto
+├── spam_ham_detector/   # codigo principal del proyecto (paquete)
+│   ├── config/          # configuracion general
+│   ├── dataset.py       # carga de datos
+│   └── evaluation.py    # evaluacion de modelos
+├── scripts/             # scripts ejecutables
+│   ├── processing/      # transformaciones de datos
+│   └── experiments/     # pipelines de experimentacion
+├── .env.sample          # placeholder de variables de entorno
+├── .gitignore           # archivos y carpetas sin trackear
+├── README.md            # guia del repositorio
+├── LICENSE              # licencia del repositorio
+├── pyproject.toml       # dependencias y configuracion del proyecto
+└── uv.lock              # fijado de versiones para reproducibilidad
 ```
 
 
