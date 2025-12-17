@@ -1,16 +1,14 @@
 """Dataset loader for YouTube comment spam classification."""
 
-import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
+
+from spam_ham_detector.config import PROCESSED_DATA_DIR
 
 
 class CommentsDataset:
     """
     Loader for YouTube comment spam classification datasets.
-
-    Loads train and test CSV files from the processed data directory
-    and splits them into features (X) and labels (y).
 
     Attributes
     ----------
@@ -18,10 +16,10 @@ class CommentsDataset:
         Training features (comment text)
     y_train : pd.Series
         Training labels (0=ham, 1=spam)
-    X_dev : pd.Series or None
-        Dev/validation features (created by get_dev_split())
-    y_dev : pd.Series or None
-        Dev/validation labels (created by get_dev_split())
+    X_dev : pd.Series
+        Dev/validation features
+    y_dev : pd.Series
+        Dev/validation labels
     X_test : pd.Series
         Test features (comment text)
     y_test : pd.Series
@@ -30,12 +28,9 @@ class CommentsDataset:
 
     def __init__(self):
         """Load train/test/dev splits automatically."""
-        # Load datasets
-        train_path = os.path.join('data', 'processed', 'train.csv')
-        test_path = os.path.join('data', 'processed', 'test.csv')
-
-        train_df = pd.read_csv(train_path, encoding='utf-8')
-        test_df = pd.read_csv(test_path, encoding='utf-8')
+        # Load datasets from processed data directory
+        train_df = pd.read_csv(PROCESSED_DATA_DIR / "train.csv")
+        test_df = pd.read_csv(PROCESSED_DATA_DIR / "test.csv")
 
         # Test set
         self.X_test = test_df['CONTENT']

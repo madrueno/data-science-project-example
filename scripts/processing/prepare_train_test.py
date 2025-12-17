@@ -1,12 +1,9 @@
 """Script to prepare train and test sets from interim data."""
 
-import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-
-PATH_INTERIM_DATA = os.path.join('data', 'interim')
-PATH_PROCESSED_DATA = os.path.join('data', 'processed')
+from spam_ham_detector.config import INTERIM_DATA_DIR, PROCESSED_DATA_DIR
 
 
 def load_and_select_columns() -> pd.DataFrame:
@@ -18,7 +15,7 @@ def load_and_select_columns() -> pd.DataFrame:
     pd.DataFrame
         DataFrame with only CONTENT and CLASS columns
     """
-    filepath = os.path.join(PATH_INTERIM_DATA, 'comments.csv')
+    filepath = INTERIM_DATA_DIR / 'comments.csv'
     print(f"Loading {filepath}...")
 
     df = pd.read_csv(filepath, encoding='utf-8')
@@ -85,12 +82,12 @@ def main() -> None:
     train_df, test_df = split_train_test(df)
 
     # Save train set
-    train_path = os.path.join(PATH_PROCESSED_DATA, 'train.csv')
+    train_path = PROCESSED_DATA_DIR / 'train.csv'
     print(f"\nSaving train set to {train_path}...")
     train_df.to_csv(train_path, index=False)
 
     # Save test set
-    test_path = os.path.join(PATH_PROCESSED_DATA, 'test.csv')
+    test_path = PROCESSED_DATA_DIR / 'test.csv'
     print(f"Saving test set to {test_path}...")
     test_df.to_csv(test_path, index=False)
 

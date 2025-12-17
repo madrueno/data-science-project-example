@@ -3,8 +3,7 @@
 import os
 import pandas as pd
 
-
-PATH_RAW_DATA = os.path.join('data', 'raw')
+from spam_ham_detector.config import RAW_DATA_DIR, INTERIM_DATA_DIR
 
 
 def merge_youtube_csvs(raw_dir: str) -> pd.DataFrame:
@@ -48,10 +47,10 @@ def main() -> None:
     Loads all CSV files from data/raw/youtube-spam-collection/
     and saves merged file to data/interim/comments.csv.
     """
-    df = merge_youtube_csvs(PATH_RAW_DATA)
+    df = merge_youtube_csvs(RAW_DATA_DIR)
 
     # Save to interim
-    output_path = os.path.join('data', 'interim', 'comments.csv')
+    output_path = INTERIM_DATA_DIR / 'comments.csv'
     print(f"\nSaving to {output_path}...")
     df.to_csv(output_path, index=False)
 

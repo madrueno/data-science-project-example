@@ -1,7 +1,7 @@
 """Training pipeline for spam classification."""
 
-from spam_ham_classifier.dataset import CommentsDataset
-from spam_ham_classifier.evaluation import evaluate_model
+from spam_ham_detector.dataset import CommentsDataset
+from spam_ham_detector.evaluation import evaluate_model
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
